@@ -1,0 +1,63 @@
+
+{% extends 'servicedesk/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">IT Service Desk Dashboard</h2>
+
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-primary">
+            <div class="card-body">
+                <h6 class="text-muted">Total Requests</h6>
+                <h2>{{ total_requests }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-warning">
+            <div class="card-body">
+                <h6 class="text-muted">Open Requests</h6>
+                <h2>{{ open_requests }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-info">
+            <div class="card-body">
+                <h6 class="text-muted">In Progress</h6>
+                <h2>{{ in_progress_requests }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-success">
+            <div class="card-body">
+                <h6 class="text-muted">Resolved Requests</h6>
+                <h2>{{ resolved_requests }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-secondary">
+            <div class="card-body">
+                <h6 class="text-muted">Closed Requests</h6>
+                <h2>{{ closed_requests }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<a href="{% url 'request_list' %}" class="btn btn-primary mt-4">
+    View All Requests
+</a>
+
+<a href="{% url 'request_create' %}" class="btn btn-success mt-4">
+    Create New Request
+</a>
+{% endblock %}

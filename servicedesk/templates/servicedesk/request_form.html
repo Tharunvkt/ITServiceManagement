@@ -1,0 +1,47 @@
+
+{% extends 'servicedesk/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width: 700px;">
+    <div class="card-body p-4">
+        <h2 class="mb-4">Create Service Request</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                {{ form.title }}
+                {{ form.title.errors }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                {{ form.description }}
+                {{ form.description.errors }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                {{ form.category }}
+                {{ form.category.errors }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Priority</label>
+                {{ form.priority }}
+                {{ form.priority.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Submit Request
+            </button>
+
+            <a href="{% url 'request_list' %}"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+
+{% extends 'servicedesk/base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Service Desk Reports</h2>
+
+<div class="row g-3">
+
+    <!-- Total Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Total Requests</h5>
+            <h2>{{ total_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- New Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>New Requests</h5>
+            <h2>{{ new_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Assigned Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Assigned Requests</h5>
+            <h2>{{ assigned_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>In Progress</h5>
+            <h2>{{ in_progress_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- On Hold -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>On Hold</h5>
+            <h2>{{ on_hold_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Resolved Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Resolved Requests</h5>
+            <h2>{{ resolved_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Closed Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Closed Requests</h5>
+            <h2>{{ closed_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Unassigned Active Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Unassigned Active Requests</h5>
+            <h2>{{ unassigned_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- SLA Breached Requests -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>SLA Breached Requests</h5>
+            <h2 class="text-danger">{{ breached_requests }}</h2>
+            <p class="text-muted mb-0">
+                Active requests past their SLA deadline
+            </p>
+        </div>
+    </div>
+
+    <!-- Critical Priority -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Critical Priority</h5>
+            <h2 class="text-danger">{{ critical_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- High Priority -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>High Priority</h5>
+            <h2 class="text-warning">{{ high_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Medium Priority -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Medium Priority</h5>
+            <h2>{{ medium_requests }}</h2>
+        </div>
+    </div>
+
+    <!-- Low Priority -->
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 h-100">
+            <h5>Low Priority</h5>
+            <h2 class="text-success">{{ low_requests }}</h2>
+        </div>
+    </div>
+
+</div>
+
+<!-- Navigation Buttons -->
+<div class="mt-4">
+    <a href="{% url 'request_list' %}" class="btn btn-primary">
+        View All Requests
+    </a>
+
+    <a href="{% url 'request_create' %}" class="btn btn-success">
+        Create New Request
+    </a>
+</div>
+
+{% endblock %}
